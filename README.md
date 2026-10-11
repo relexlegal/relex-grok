@@ -63,11 +63,13 @@ OAuth detail for any host: https://relex.legal/docs/connectors/mcp
 
 ## MCP tools (remote server)
 
-The hosted connector at `https://relex.legal/api/mcp` exposes **eleven** tools:
+The hosted connector at `https://relex.legal/api/mcp` exposes **twelve** tools:
 `list_matters`, `read_matter_context`, `diagnose_matter_sources`,
-`save_matter_work_product`, `correct_matter_ontology`, `conclude_matter_session`,
-`find_legal_professionals`, `read_legal_professional`, `prepare_professional_request`,
-`search`, and `execute`. Auth is OAuth 2.1 + PKCE; connector scopes are
+`read_matter_source`, `save_matter_work_product`, `correct_matter_ontology`,
+`conclude_matter_session`, `find_legal_professionals`, `read_legal_professional`,
+`prepare_professional_request`, `search`, and `execute`. Prefer the typed matter
+workflows; use `search`/`execute` only when no typed workflow covers the task.
+Auth is OAuth 2.1 + PKCE; connector scopes are
 `relex.cases.read relex.cases.write relex.draft`.
 
 Grok connectors use `https://grok.com/connectors-oauth-exchange-code/` (also `console.x.ai`). Grok Build CLI: `grok mcp add --transport http` or `.mcp.json`.

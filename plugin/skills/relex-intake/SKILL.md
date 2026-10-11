@@ -124,6 +124,6 @@ handle it. Never quote Relex's own plan prices; invoice amounts are the firm's.
 
 ## Alongside
 
-- `relex` — connect, the two tools, the one PII rule.
+- `relex` — connect, typed matter workflows, the PII boundary, and evidence steps.
 - `relex-participants` — the roster; the client is usually `[GUEST_1]`.
 - `relex-matter` / `relex-counsel` — the intake snapshot, conflicts, deadlines.

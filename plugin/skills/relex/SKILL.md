@@ -1,30 +1,30 @@
 ---
 name: relex
-description: Use for ANY Relex work — setting up Relex, starting or running a case, drafting documents, parties, attachments, payments, collaboration, or client/guest invitations. Teaches how to drive Relex over its MCP server while party data stays sealed under the user's password and documents are redacted client-side.
+description: Use for ANY Relex work — setting up Relex, starting or running a case, drafting documents, parties, attachments, payments, collaboration, or client/guest invitations. Use the typed Relex MCP workflows; browser reading is the default and server reading requires explicit user selection.
 ---
 
 # Working in Relex
 
-Relex is the legal workspace. You solve the user's problem and you lead the case.
-You do that by using Relex: read its context and ontology, cache official text,
-and file the document you wrote with `POST /cases/{caseId}/draft`.
-You drive it over the Relex MCP server (`search` + `execute`).
+Relex is the legal workspace. You solve the user's problem by using its typed MCP
+workflows: read the matter and every relevant source, check the ontology, cache
+official text, and save a grounded work product with `save_matter_work_product`.
+Use `search` + `execute` only when no typed workflow covers the operation.
 
-You do **not** hold or enter the user's data. Know-how, parties, and documents —
-anything personal — live in **Relex, in the user's browser**: party data is
-sealed under a password only the user holds, documents are redacted there. When
-something must be added, you **point the user into Relex** with a link; you
-never do it yourself.
+Party identities stay sealed in Relex. Browser reading is the default: source
+pages stay on the user's device and only redacted text is available to this
+connector. Server/custom reading is allowed only after the user explicitly
+selects that mode. Do not ask the user to attach originals or paste source text
+into this chat; repair and retry existing sources in Relex.
 
 ## Connect (your first tool call signs the user in)
 
-On your first `search`/`execute` call the MCP server returns an OAuth challenge
+On your first workflow-tool call the MCP server returns an OAuth challenge
 and the user's browser opens to sign in to Relex (Google or Apple) and approve —
 **no key to paste**. Tell the user a window will open, then wait. (In Grok
 desktop / Grok the connector at `https://relex.legal/api/mcp` signs in the
 same way.)
 
-## The two tools (plain arguments — no code to write)
+## Generic tools (last resort)
 
 - `search({ query?, tag?, method? })` → discover endpoints; returns a short list
   of `{ method, path, summary, tags }`.
@@ -32,6 +32,11 @@ same way.)
   `/v1` and must be plain (no percent-encoding). Returns `{ status, body }`.
 
 ```
+
+Use typed workflows first: `list_matters`, `read_matter_context`,
+`diagnose_matter_sources`, `read_matter_source`, `save_matter_work_product`,
+`correct_matter_ontology`, and `conclude_matter_session`. The connector also
+provides three professional-marketplace tools.
 search({ query: "cases" })
 execute({ method: "GET",  path: "/onboarding/status" })
 execute({ method: "POST", path: "/cases", body: {} })  // no name, no tier — the eval flow sets both
@@ -50,19 +55,20 @@ Jev is disabled by default pending privacy and provider validation. When enabled
 ## The one rule: personal data never crosses to you
 
 Names, national IDs, and contact details are sealed client-side with a key
-derived from the user's PII password — the server stores only ciphertext and
-cannot decrypt it under any circumstance; that's a cryptographic fact, not a
-policy you have to trust. Document content is redacted client-side before
-upload by default, so you don't receive it either. Therefore:
+derived from the user's PII password. Browser document reading is the default;
+only redacted text reaches this connector. If the user explicitly selects the
+Relex Private Model or a custom endpoint, that reader receives raw pages for
+processing before redaction. Do not describe server reading as browser-only or
+as the default. Therefore:
 
 - **Never** ask the user to type a name, ID, address, or document text into chat.
 - If the user pastes personal data anyway, **refuse it**: say you cannot hold it
   and that it belongs in the case where it is sealed, hand the case link, and do
   not repeat it back or draft around it.
-- A call for party or document plaintext returns the working calls: read
-  `GET /cases/{caseId}/context`, labels from the ontology, file with
-  `POST /cases/{caseId}/draft`, and the case page where the user adds a file
-  or a party. Use those calls.
+- Read party labels and redacted source text with the typed matter workflows;
+  save the result with `save_matter_work_product`. Never ask for source text in
+  chat or direct users to upload a duplicate when an existing source can be
+  repaired in Relex.
 - You work only with de-identified labels (`[Party 1]`) and anonymized counts.
 
 This section is the **canonical** statement of the PII rule (mirrored in the
@@ -81,8 +87,11 @@ argument or filing when sources are blocked.
    top-level `outcome` and, per source, `outcome`, `failureCode`,
    `failureMessage`, `repairAction` and a `deepLink` to that source. Do not
    invent text for blocked sources.
-3. **Read only usable redacted text** — rely only on `readySources` / present
-   `text`. Never invent pages, parties, payments, or citations.
+3. **Read all usable redacted text** — a context document marked
+   `textTruncated` is not complete. Use `read_matter_source` from offset 0 and
+   continue at `textOffset + text.length` until `hasMoreText` is false. If
+   `sourceReadiness.hasMore` is true, read the next inventory page at
+   `nextSourceOffset`. Never invent pages, parties, payments, or citations.
 4. **Fix blockers in Relex** — give the user each blocker's `failureMessage`
    and `deepLink`: `raise_quota` → plan/billing page; `retry_processing`,
    `reprocess_or_replace_source`, `open_in_relex` → that source. Repairs happen
@@ -103,10 +112,10 @@ argument or filing when sources are blocked.
    explicit `[MISSING]` markers; do not claim filing/export readiness.
    Evidence-backed ontology fixes go through `correct_matter_ontology` at
    `baseRevision`.
-7. **Hand off** — `conclude_matter_session` puts the conclusions on the matter;
-   the next host (Claude, ChatGPT, Grok, Gemini, or a generic MCP/xAI adapter)
-   sees them in `read_matter_context.steeringConclusions` and continues without
-   re-deriving unsupported claims.
+7. **Hand off** — saved work products and their readback appear to every host.
+   Call `conclude_matter_session` only for a steering session this host opened.
+   If there is no such session, the verified Relex work product is the handoff;
+   do not retry conclude or claim a transcript was saved.
 
 Agent drafts and prior answers are **not** independent corroboration. If
 evaluation updated metadata but sources remain missing, say so and steer the

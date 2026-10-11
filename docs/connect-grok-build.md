@@ -77,4 +77,6 @@ enabled = true
 > Set up my practice workflow with Relex
 
 Complete browser OAuth if prompted, then follow deep links for PII password and
-know-how. Tools appear as `relex__search` and `relex__execute` (namespaced).
+know-how. Grok Build exposes the server's typed matter workflows as well as
+`relex__search` and `relex__execute`; prefer the typed workflows for matter
+reading, source diagnosis, paged evidence, and work-product handoff.

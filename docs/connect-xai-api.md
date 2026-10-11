@@ -23,7 +23,7 @@ chat = client.chat.create(
         mcp(
             server_url="https://relex.legal/api/mcp",
             server_label="relex",
-            server_description="Relex legal cases — search and execute over a PII-safe API",
+            server_description="Relex legal workspace — typed matter workflows with redacted, paged source reading",
             # Optional headless auth:
             # authorization=os.getenv("RELEX_API_KEY"),
         ),
@@ -62,13 +62,16 @@ print(response)
 
 ## Allowed tools (optional)
 
-Relex exposes only `search` and `execute`. You can pin them:
+Relex exposes typed workflows for matter reading, source diagnosis, paged source
+reading, and grounded work products, plus `search` and `execute` for operations
+without a typed workflow. Do not pin only `search` and `execute`, or the agent
+will lose the safer matter workflow tools. Omit `allowed_tool_names` to expose
+the full server tool list:
 
 ```python
 mcp(
     server_url="https://relex.legal/api/mcp",
     server_label="relex",
-    allowed_tool_names=["search", "execute"],
 )
 ```
 

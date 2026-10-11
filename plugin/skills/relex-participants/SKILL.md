@@ -115,6 +115,6 @@ the case) without the user asking.
 
 ## Alongside
 
-- `relex` — connect, the two tools, the one PII rule.
+- `relex` — connect, typed matter workflows, the PII boundary, and evidence steps.
 - `relex-ontology` — the full case graph and the collaboration loop.
 - `relex-matter` — deadlines, timeline, conflicts, comms, closing.
