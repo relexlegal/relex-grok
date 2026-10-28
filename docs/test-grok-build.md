@@ -47,8 +47,8 @@ OAuth is interactive. In Grok Build:
 3. Press **`i`** to authenticate
 4. Complete Google/Apple sign-in in the browser
 
-After that, `grok mcp doctor relex` should report healthy tools `search` and
-`execute` (namespaced as `relex__search` / `relex__execute`).
+After that, `grok mcp doctor relex` should report healthy tools `search`,
+`read_api` and `execute` (namespaced as `relex__search` / `relex__read_api` / `relex__execute`).
 
 API-key alternative (no browser):
 
@@ -61,4 +61,4 @@ grok mcp add --transport http relex https://relex.legal/api/mcp \
 
 > Set up my practice workflow with Relex
 
-Expected: onboarding status via `execute`, deep links for PII password / knowledge.
+Expected: onboarding status via `read_api`, deep links for PII password / knowledge.

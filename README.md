@@ -50,24 +50,24 @@ Always label **Relex**, URL `https://relex.legal/api/mcp`.
 
 ## How it works
 
-Grok reaches the same MCP endpoint via Streamable HTTP. Twelve tools — ten matter
-workflow tools plus `search` and `execute` (full list below). Auth: **OAuth** (browser) on
+Grok reaches the same MCP endpoint via Streamable HTTP. Thirteen tools — ten matter
+workflow tools plus `search`, `read_api` and `execute` (full list below). Auth: **OAuth** (browser) on
 grok.com / Grok Build, or `authorization` / bearer **Relex API key** for xAI API
 / headless.
 
 Party data is sealed client-side; documents are read and redacted by the Relex Private Model on Relex servers by
-default; `execute` refuses plaintext PII and returns deep links.
+default; `read_api` and `execute` refuse plaintext PII and return deep links.
 
 OAuth detail for any host: https://relex.legal/docs/connectors/mcp
 
 
 ## MCP tools (remote server)
 
-The hosted connector at `https://relex.legal/api/mcp` exposes **twelve** tools:
+The hosted connector at `https://relex.legal/api/mcp` exposes **thirteen** tools:
 `list_matters`, `read_matter_context`, `read_matter_source`, `diagnose_matter_sources`,
 `save_matter_work_product`, `correct_matter_ontology`, `conclude_matter_session`,
 `find_legal_professionals`, `read_legal_professional`, `prepare_professional_request`,
-`search`, and `execute`. Auth is OAuth 2.1 + PKCE; connector scopes are
+`search`, `read_api`, and `execute`. Auth is OAuth 2.1 + PKCE; connector scopes are
 `relex.cases.read relex.cases.write relex.draft`.
 
 Grok connectors use `https://grok.com/connectors-oauth-exchange-code/` (also `console.x.ai`). Grok Build CLI: `grok mcp add --transport http` or `.mcp.json`.

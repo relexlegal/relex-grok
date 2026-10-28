@@ -1,20 +1,26 @@
 # Submission — xAI (Grok Bot / Grok Build marketplace)
 
-> Prepared 2026-10-28 on branch `directory-review-2026-10`. Nothing has been
-> submitted, pushed or deployed. Before any submission: deploy the backend branch
-> `directory-review-2026-10` (neutral server instructions, data-only responses),
-> then merge and push this repo.
+> Prepared 2026-10-28; updated the same day for MCP server version 1.1.0
+> (branch `docs/read-api-1.1.0`). Nothing has been submitted. The backend with
+> neutral server instructions, data-only responses and the `read_api` tool is
+> on `master` (5a5d7b9) and deployed as revision `relex-backend-00192`.
 
 Hosted server: `https://relex.legal/api/mcp` (streamable HTTP, OAuth 2.1 with
-PKCE and dynamic client registration). Twelve tools: `list_matters`,
+PKCE and dynamic client registration). Thirteen tools: `list_matters`,
 `read_matter_context`, `diagnose_matter_sources`, `read_matter_source`,
 `save_matter_work_product`, `correct_matter_ontology`, `conclude_matter_session`,
 `find_legal_professionals`, `read_legal_professional`,
-`prepare_professional_request`, `search`, `execute`.
+`prepare_professional_request`, `search`, `read_api`, `execute`.
+
+Server version 1.1.0. `read_api` reads one GET endpoint (read-only; parameters
+`path` and optional `query`). `execute` creates, updates or deletes through one
+endpoint (POST/PUT/PATCH/DELETE); DELETE and other irreversible routes are not
+applied by the tool and return a Relex deep link where the user confirms the
+change.
 
 ## Done in this branch
-- [x] Plugin 0.1.8 (`plugin/plugin.json`, `plugin/.grok-plugin/plugin.json`, `.grok-plugin/marketplace.json`), description says "legal practice management".
-- [x] README: twelve tools; reading default corrected. Skills audited (0 unknown endpoints).
+- [x] Plugin 0.1.9 (`plugin/plugin.json`, `plugin/.grok-plugin/plugin.json`, `.grok-plugin/marketplace.json`), description says "legal practice management".
+- [x] README: thirteen tools; reading default corrected. Skills audited (0 unknown endpoints).
 
 ## User must do — form (https://x.ai/bot/marketplace/submit-a-plugin)
 - [ ] Plugin name: Relex Legal · work email · organisation: Relex · handle (lowercase): relex [CONFIRM WITH GEORGE]
