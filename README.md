@@ -50,12 +50,12 @@ Always label **Relex**, URL `https://relex.legal/api/mcp`.
 
 ## How it works
 
-Grok reaches the same MCP endpoint via Streamable HTTP. Two tools — `search` and
-`execute` — with a fixed ~1k-token footprint. Auth: **OAuth** (browser) on
+Grok reaches the same MCP endpoint via Streamable HTTP. Twelve tools — ten matter
+workflow tools plus `search` and `execute` (full list below). Auth: **OAuth** (browser) on
 grok.com / Grok Build, or `authorization` / bearer **Relex API key** for xAI API
 / headless.
 
-Party data is sealed client-side; documents are redacted client-side by
+Party data is sealed client-side; documents are read and redacted by the Relex Private Model on Relex servers by
 default; `execute` refuses plaintext PII and returns deep links.
 
 OAuth detail for any host: https://relex.legal/docs/connectors/mcp
