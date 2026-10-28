@@ -13,7 +13,7 @@ Relex lets you use Grok on legal matters **without exposing client PII**.
 
 - Parties sealed client-side under PII password
 - Documents read and redacted by the Relex Private Model on Relex servers by default (browser mode keeps reading on the device)
-- MCP `execute` blocks plaintext party/document endpoints
+- MCP `read_api` and `execute` block plaintext party/document endpoints
 
 ## Reporting
 

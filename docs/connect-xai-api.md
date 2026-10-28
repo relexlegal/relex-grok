@@ -23,7 +23,7 @@ chat = client.chat.create(
         mcp(
             server_url="https://relex.legal/api/mcp",
             server_label="relex",
-            server_description="Relex legal cases — search and execute over a PII-safe API",
+            server_description="Relex legal cases — search, read_api and execute over a PII-safe API",
             # Optional headless auth:
             # authorization=os.getenv("RELEX_API_KEY"),
         ),
@@ -62,13 +62,14 @@ print(response)
 
 ## Allowed tools (optional)
 
-Relex exposes only `search` and `execute`. You can pin them:
+Relex exposes thirteen tools (ten matter tools plus `search`, `read_api` and
+`execute`). You can pin a subset, for example the three generic API tools:
 
 ```python
 mcp(
     server_url="https://relex.legal/api/mcp",
     server_label="relex",
-    allowed_tool_names=["search", "execute"],
+    allowed_tool_names=["search", "read_api", "execute"],
 )
 ```
 
