@@ -68,7 +68,7 @@ OAuth detail for any host: https://relex.legal/docs/connectors/mcp
 | Files are uploaded to a matter | Case page in the Relex app (`https://relex.legal/dashboard/cases/{caseId}`, **Attach**) |
 | The assistant reads redacted sources | `read_matter_context`, `read_matter_source` (parties as `[PARTY_NAME_n]` labels) |
 | The assistant saves its work | `save_matter_work_product`: markdown with label tokens, versioned in the matter |
-| The user exports the finished document | Relex app: Word, PDF, Google Drive, signing, email. Labels become the parties' real details in the user's browser, after the PII password |
+| The user exports the finished document | Relex app: Word, PDF, Google Drive, signing, email. Labels become the parties' real details in the user's browser, after the user's PII password when parties are sealed |
 
 Identity fields and original files never reach the assistant. The full guide,
 including ontology operations, agents and every endpoint area, is
