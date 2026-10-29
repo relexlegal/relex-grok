@@ -19,7 +19,7 @@ applied by the tool and return a Relex deep link where the user confirms the
 change.
 
 ## Done in this branch
-- [x] Plugin 0.1.9 (`plugin/plugin.json`, `plugin/.grok-plugin/plugin.json`, `.grok-plugin/marketplace.json`), description says "legal practice management".
+- [x] Plugin 0.1.10 (`plugin/plugin.json`, `plugin/.grok-plugin/plugin.json`, `.grok-plugin/marketplace.json`), description says "legal practice management".
 - [x] README: thirteen tools; reading default corrected. Skills audited (0 unknown endpoints).
 
 ## User must do — form (https://x.ai/bot/marketplace/submit-a-plugin)
