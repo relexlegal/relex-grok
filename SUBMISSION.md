@@ -1,7 +1,8 @@
 # Submission — xAI (Grok Bot / Grok Build marketplace)
 
 > Prepared 2026-10-28; updated the same day for MCP server version 1.1.0
-> (branch `docs/read-api-1.1.0`). Nothing has been submitted. The backend with
+> (branch `docs/read-api-1.1.0`); listing line updated 2026-10-30 for plugin 0.1.11
+> (whole workspace, branch `feat/connector-full-platform`). Nothing has been submitted. The backend with
 > neutral server instructions, data-only responses and the `read_api` tool is
 > on `master` (5a5d7b9) and deployed as revision `relex-backend-00192`.
 
@@ -19,7 +20,7 @@ applied by the tool and return a Relex deep link where the user confirms the
 change.
 
 ## Done in this branch
-- [x] Plugin 0.1.10 (`plugin/plugin.json`, `plugin/.grok-plugin/plugin.json`, `.grok-plugin/marketplace.json`), description says "legal practice management".
+- [x] Plugin 0.1.11 (`plugin/plugin.json`, `plugin/.grok-plugin/plugin.json`, `.grok-plugin/marketplace.json`), description says "legal practice management".
 - [x] README: thirteen tools; reading default corrected. Skills audited (0 unknown endpoints).
 
 ## User must do — form (https://x.ai/bot/marketplace/submit-a-plugin)
@@ -37,7 +38,7 @@ Add one entry to `.grok-plugin/marketplace.json`, then run
 ```json
 {
   "name": "relex-legal",
-  "description": "Relex legal practice management. Work on your Relex matters over a PII-safe MCP connector: redacted sources, drafts, matter ontology and verified legal professionals.",
+  "description": "Relex legal practice management for Grok: work across your Relex workspace (matters, know-how, research, ontology, agreements, intake, e-signature, invoices and payment status) over a PII-safe MCP connector.",
   "category": "productivity",
   "source": {"source": "url", "url": "https://github.com/relexlegal/relex-grok.git", "path": "plugin", "sha": "<40-char commit sha on main after merge>"},
   "homepage": "https://relex.legal/docs/mcp",
