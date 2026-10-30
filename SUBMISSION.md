@@ -27,7 +27,7 @@ change.
 - [ ] Website: https://relex.legal · Logo URL (1:1 PNG with background plate): https://raw.githubusercontent.com/relexlegal/relex-grok/main/plugin/assets/logo.png (check it has a solid background)
 - [ ] Listing targets: Grok Bot, Grok (coming soon), Cursor — pick what applies
 - [ ] MCP URL: https://relex.legal/api/mcp · public repo: https://github.com/relexlegal/relex-grok
-- [ ] Description: "Relex legal practice management for Grok: work on your Relex matters over a PII-safe MCP connector."
+- [ ] Description: "Relex legal practice management for Grok: work across your Relex workspace (matters, know-how, research, ontology, agreements, intake, e-signature, invoices and payment status) over a PII-safe MCP connector."
 - [ ] Testing instructions: sign in with the reviewer account, open the QA matter (synthetic data), run "List my Relex matters", "Summarise the documents in my demo matter", "Find a verified employment lawyer admitted in Germany".
 - [ ] Tick "tested locally and in-app" only after actually testing; accept Publisher Terms.
 
