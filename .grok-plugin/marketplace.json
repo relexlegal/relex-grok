@@ -5,13 +5,13 @@
   },
   "metadata": {
     "description": "Relex legal practice management — use Grok on legal matters without exposing client PII.",
-    "version": "0.1.10"
+    "version": "0.1.11"
   },
   "plugins": [
     {
       "name": "relex-legal",
       "source": "./plugin",
-      "description": "Relex legal practice management for Grok: work on your Relex matters over a PII-safe MCP connector (thirteen tools: ten matter tools plus search, read_api and execute). Party identities are sealed with a key only the user holds, documents are read and redacted by the Relex Private Model, and the assistant works with de-identified labels.",
+      "description": "Relex legal practice management for Grok: work across your Relex workspace (matters, know-how, research, ontology, agreements, intake, e-signature, invoices and payment status) over a PII-safe MCP connector (thirteen tools: ten matter tools plus search, read_api and execute). Party identities are sealed with a key only the user holds, documents are read and redacted by the Relex Private Model, and the assistant works with de-identified labels.",
       "category": "legal",
       "keywords": [
         "legal",
