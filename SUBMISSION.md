@@ -1,5 +1,7 @@
 # Submission — xAI (Grok Bot / Grok Build marketplace)
 
+> **Status 2026-11-03 (Europe/Berlin):** Grok Build marketplace PR opened: https://github.com/xai-org/plugin-marketplace/pull/1874 (pinned c51f933, awaiting review). Grok Bot form not submitted; package in `_submissions/grok/`.
+
 > Prepared 2026-10-28; updated the same day for MCP server version 1.1.0
 > (branch `docs/read-api-1.1.0`); listing line updated 2026-10-30 for plugin 0.1.11
 > (whole workspace, branch `feat/connector-full-platform`). Nothing has been submitted. The backend with
